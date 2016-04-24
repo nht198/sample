@@ -1,0 +1,24 @@
+import os
+import glob
+from time import sleep
+import subprocess
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+os.chdir('./Music')
+f = glob.glob('*.mp3')
+print(f)
+h= len(f)
+print(h)
+flag=1
+pt=0
+st=0
+while True:
+	try:
+		player = subprocess.Popen(["omxplayer",f[pt]],stdin=subprocess.PIPE)
+	except 'tvservice-client':
+os.system('sudo killall omxplayer.bin')		os.system('sudo killall omxplayer.bin')
+	fi = player.poll()
+	flag = 0
+	st = 0  
+
